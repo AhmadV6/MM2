@@ -1,0 +1,142 @@
+
+
+--code
+
+local currentTarget = nil
+local targetRemote = nil
+
+local function checkRole(player)
+    local backpack = player.Backpack
+    local character = player.Character
+
+    if backpack then
+        if backpack:FindFirstChild("Knife") then return "Murder" end
+        if backpack:FindFirstChild("Gun") then return "Sheriff" end
+    end
+
+    if character then
+        if character:FindFirstChild("Knife") then return "Murder" end
+        if character:FindFirstChild("Gun") then return "Sheriff" end
+    end
+
+    if player:GetAttribute("Alive") == false then return "Dead" end
+
+    return "Innocent"
+end
+
+local function isVisible(part, origin)
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	params.FilterDescendantsInstances = {game.Players.LocalPlayer}
+	params.IgnoreWater = true
+	
+	local ray = workspace:Raycast(origin.Position, (part.Position - origin.Position), params)
+	
+	if ray then
+		local char = ray.Instance:FindFirstAncestorWhichIsA("Model")
+		if game.Players:GetPlayerFromCharacter(char) then	
+			return true
+		else
+			return false
+		end
+	else
+		return false
+	end
+end
+
+local function GetClosestPlayer()
+    local closestDistance = math.huge
+    local closest = nil
+    local camera = workspace.CurrentCamera
+    local localRole = checkRole(game.Players.LocalPlayer)
+
+    if localRole == "Innocent" or localRole == "Dead" then return nil end
+
+    for _, v in pairs(game.Players:GetPlayers()) do
+        if v == game.Players.LocalPlayer then continue end
+
+        local theirRole = checkRole(v)
+
+        if localRole == "Sheriff" and (theirRole == "Innocent" or theirRole == "Dead") then continue end
+        if localRole == "Murder" and theirRole == "Dead" then continue end
+
+        local char = v.Character
+        if not char then continue end
+        local hrp = char:FindFirstChild("HumanoidRootPart")
+        if not hrp then continue end
+        if not isVisible(hrp, camera.CFrame) then continue end
+
+        local screenPos, onScreen = camera:WorldToViewportPoint(hrp.Position)
+        if onScreen then
+            local distance = (Vector2.new(screenPos.X, screenPos.Y) - camera.ViewportSize / 2).Magnitude
+            if distance < closestDistance then
+                closestDistance = distance
+                closest = hrp
+            end
+        end
+    end
+
+    return closest
+end
+
+local function getRemote()
+    local backpack = game.Players.LocalPlayer.Backpack
+    local character = game.Players.LocalPlayer.Character
+
+    if checkRole(game.Players.LocalPlayer) == "Murder" then
+        if backpack and backpack:FindFirstChild("Knife") then
+            return backpack:FindFirstChild("Knife"):FindFirstChild("KnifeThrown", true)
+        elseif character and character:FindFirstChild("Knife") then
+            return character:FindFirstChild("Knife"):FindFirstChild("KnifeThrown", true)
+        end
+    elseif checkRole(game.Players.LocalPlayer) == "Sheriff" then
+        if backpack and backpack:FindFirstChild("Gun") then
+            return backpack:FindFirstChild("Gun"):FindFirstChild("Shoot", true)
+        elseif character and character:FindFirstChild("Gun") then
+            return character:FindFirstChild("Gun"):FindFirstChild("Shoot", true)
+        end
+    end
+end
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    currentTarget = GetClosestPlayer()
+    targetRemote = getRemote()
+
+    for i,v in pairs(game.Players:GetPlayers()) do
+        if v == game.Players.LocalPlayer then continue end
+
+        local char = v.Character
+        if not char then continue end
+        local hrp = char:FindFirstChild("HumanoidRootPart")
+        if not hrp then continue end
+
+        local localRole = checkRole(game.Players.LocalPlayer)
+        local theirRole = checkRole(v)
+
+        if localRole == "Sheriff" and theirRole == "Murder" then
+            hrp.Size = Vector3.new(8,8,8)
+        elseif localRole == "Murder" then
+            hrp.Size = Vector3.new(8,8,8)
+        else
+            hrp.Size = Vector3.new(2,2,1)
+        end
+    end
+end)
+
+local oldNamecall
+oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
+    local args = {...}
+    local method = getnamecallmethod()
+
+    if targetRemote and self == targetRemote and method == "FireServer" then
+        if not currentTarget then return oldNamecall(self, ...) end
+
+        args[2] = currentTarget.CFrame
+
+        return oldNamecall(self, unpack(args))
+    end
+
+    return oldNamecall(self, ...)
+end)
+
+print("RAN")
