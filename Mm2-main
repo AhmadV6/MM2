@@ -1,5 +1,5 @@
 local function visual()
-    loadstring(game:HttpGet('https://api.rubis.app/v2/scrap/19GgBtUXMcEKYb2O/raw'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ctrl-GrowaGarden/VisualSuite/refs/heads/main/lua'))()
 end
 
 task.spawn(visual)
