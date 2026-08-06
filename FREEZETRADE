@@ -1,0 +1,381 @@
+-- ts file was generated at discord.gg/25ms
+
+setclipboard('reeferz.netlify.app')
+
+local _call6 = game:GetService('TweenService')
+local _LocalPlayer11 = game:GetService('Players').LocalPlayer
+local _call15 = Instance.new('ScreenGui')
+
+_call15.Name = 'MM2CustomGui'
+_call15.ResetOnSpawn = false
+_call15.DisplayOrder = 999999
+_call15.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+_call15.Parent = _LocalPlayer11:WaitForChild('PlayerGui')
+
+local _call19 = Instance.new('Frame')
+
+_call19.Name = 'MainFrame'
+_call19.Size = UDim2.new(0, 320, 0, 380)
+_call19.Position = UDim2.new(0.5, -160, 0.5, -190)
+_call19.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_call19.BorderSizePixel = 0
+_call19.ClipsDescendants = true
+_call19.Parent = _call15
+
+local _call27 = Instance.new('UICorner')
+
+_call27.CornerRadius = UDim.new(0, 16)
+_call27.Parent = _call19
+
+local _call31 = Instance.new('UIStroke')
+
+_call31.Color = Color3.fromRGB(255, 105, 180)
+_call31.Thickness = 2
+_call31.Parent = _call19
+
+local _call35 = Instance.new('UIGradient')
+local _call49 = ColorSequence.new({
+    [1] = ColorSequenceKeypoint.new(0, Color3.fromRGB(10, 10, 12)),
+    [2] = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 10, 25)),
+    [3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(10, 10, 12)),
+})
+
+_call35.Color = _call49
+_call35.Rotation = 45
+_call35.Parent = _call19
+
+game:GetService('RunService').RenderStepped:Connect(function(_53, _53_2, _53_3, _53_4, _53_5)
+    _call35.Rotation = ((0 + (_53 * 45)) % 360)
+end)
+
+local _call58 = Instance.new('Frame')
+
+_call58.Name = 'Header'
+_call58.Size = UDim2.new(1, 0, 0, 50)
+_call58.BackgroundTransparency = 1
+_call58.Parent = _call19
+
+local _call62 = Instance.new('TextLabel')
+
+_call62.Name = 'MM2Badge'
+_call62.Size = UDim2.new(0, 42, 0, 42)
+_call62.Position = UDim2.new(0, 10, 0, 4)
+_call62.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+_call62.Text = 'MM2'
+_call62.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call62.TextSize = 16
+_call62.Font = Enum.Font.SourceSansBold
+_call62.Parent = _call58
+
+local _call74 = Instance.new('UICorner')
+
+_call74.CornerRadius = UDim.new(0, 10)
+_call74.Parent = _call62
+
+local _call78 = Instance.new('TextLabel')
+
+_call78.Name = 'Title'
+_call78.Size = UDim2.new(1, -65, 1, 0)
+_call78.Position = UDim2.new(0, 60, 0, 0)
+_call78.BackgroundTransparency = 1
+_call78.Text = 'PREMIUM SCRIPT MENU'
+_call78.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call78.TextSize = 16
+_call78.Font = Enum.Font.SourceSansBold
+_call78.TextXAlignment = Enum.TextXAlignment.Left
+_call78.Parent = _call58
+
+_call58.InputBegan:Connect(function(_92, _92_2, _92_3, _92_4, _92_5)
+    local _ = _92.UserInputType == Enum.UserInputType.MouseButton1
+    local _ = _92.UserInputType == Enum.UserInputType.Touch
+end)
+_call58.InputChanged:Connect(function(_104, _104_2)
+    local _ = _104.UserInputType == Enum.UserInputType.MouseMovement
+    local _ = _104.UserInputType == Enum.UserInputType.Touch
+end)
+game:GetService('UserInputService').InputChanged:Connect(function(_116, _116_2) end)
+
+local _call118 = Instance.new('Frame')
+
+_call118.Name = 'Freeze TradeRow'
+_call118.Size = UDim2.new(1, -20, 0, 70)
+_call118.Position = UDim2.new(0, 10, 0, 55)
+_call118.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+_call118.BackgroundTransparency = 0.2
+_call118.BorderSizePixel = 0
+_call118.Parent = _call19
+
+local _call126 = Instance.new('UICorner')
+
+_call126.CornerRadius = UDim.new(0, 12)
+_call126.Parent = _call118
+
+local _call130 = Instance.new('UIStroke')
+
+_call130.Color = Color3.fromRGB(60, 60, 60)
+_call130.Thickness = 1
+_call130.Parent = _call118
+
+local _call134 = Instance.new('TextLabel')
+
+_call134.Size = UDim2.new(0.6, 0, 0.5, 0)
+_call134.Position = UDim2.new(0, 15, 0.15, 0)
+_call134.BackgroundTransparency = 1
+_call134.Text = 'Freeze Trade'
+_call134.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call134.TextSize = 18
+_call134.Font = Enum.Font.SourceSansBold
+_call134.TextXAlignment = Enum.TextXAlignment.Left
+_call134.Parent = _call118
+
+local _call146 = Instance.new('TextLabel')
+
+_call146.Size = UDim2.new(0.6, 0, 0.3, 0)
+_call146.Position = UDim2.new(0, 15, 0.6, 0)
+_call146.BackgroundTransparency = 1
+_call146.Text = 'Disabled'
+_call146.TextColor3 = Color3.fromRGB(150, 150, 150)
+_call146.TextSize = 12
+_call146.Font = Enum.Font.SourceSans
+_call146.TextXAlignment = Enum.TextXAlignment.Left
+_call146.Parent = _call118
+
+local _call158 = Instance.new('TextButton')
+
+_call158.Name = 'Switch'
+_call158.Size = UDim2.new(0, 60, 0, 30)
+_call158.Position = UDim2.new(1, -75, 0.5, -15)
+_call158.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+_call158.AutoButtonColor = false
+_call158.Text = ''
+_call158.Parent = _call118
+
+local _call166 = Instance.new('UICorner')
+
+_call166.CornerRadius = UDim.new(1, 0)
+_call166.Parent = _call158
+
+local _call170 = Instance.new('Frame')
+
+_call170.Name = 'Knob'
+_call170.Size = UDim2.new(0, 24, 0, 24)
+_call170.Position = UDim2.new(0, 3, 0.5, -12)
+_call170.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_call170.BorderSizePixel = 0
+_call170.Parent = _call158
+
+local _call178 = Instance.new('UICorner')
+
+_call178.CornerRadius = UDim.new(1, 0)
+_call178.Parent = _call170
+
+_call158.MouseButton1Click:Connect(function(_184, _184_2, _184_3)
+    local _call194 = _call6:Create(_call170, TweenInfo.new(0.2), {
+        Position = UDim2.new(1, -27, 0.5, -12),
+    })
+
+    _call194:Play()
+
+    local _call200 = _call6:Create(_call158, TweenInfo.new(0.2), {
+        BackgroundColor3 = Color3.fromRGB(255, 105, 180),
+    })
+
+    _call200:Play()
+
+    _call146.Text = 'Active'
+    _call146.TextColor3 = Color3.fromRGB(255, 105, 180)
+end)
+
+local _call204 = Instance.new('Frame')
+
+_call204.Name = 'Auto AcceptRow'
+_call204.Size = UDim2.new(1, -20, 0, 70)
+_call204.Position = UDim2.new(0, 10, 0, 133)
+_call204.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+_call204.BackgroundTransparency = 0.2
+_call204.BorderSizePixel = 0
+_call204.Parent = _call19
+
+local _call212 = Instance.new('UICorner')
+
+_call212.CornerRadius = UDim.new(0, 12)
+_call212.Parent = _call204
+
+local _call216 = Instance.new('UIStroke')
+
+_call216.Color = Color3.fromRGB(60, 60, 60)
+_call216.Thickness = 1
+_call216.Parent = _call204
+
+local _call220 = Instance.new('TextLabel')
+
+_call220.Size = UDim2.new(0.6, 0, 0.5, 0)
+_call220.Position = UDim2.new(0, 15, 0.15, 0)
+_call220.BackgroundTransparency = 1
+_call220.Text = 'Auto Accept'
+_call220.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call220.TextSize = 18
+_call220.Font = Enum.Font.SourceSansBold
+_call220.TextXAlignment = Enum.TextXAlignment.Left
+_call220.Parent = _call204
+
+local _call232 = Instance.new('TextLabel')
+
+_call232.Size = UDim2.new(0.6, 0, 0.3, 0)
+_call232.Position = UDim2.new(0, 15, 0.6, 0)
+_call232.BackgroundTransparency = 1
+_call232.Text = 'Disabled'
+_call232.TextColor3 = Color3.fromRGB(150, 150, 150)
+_call232.TextSize = 12
+_call232.Font = Enum.Font.SourceSans
+_call232.TextXAlignment = Enum.TextXAlignment.Left
+_call232.Parent = _call204
+
+local _call244 = Instance.new('TextButton')
+
+_call244.Name = 'Switch'
+_call244.Size = UDim2.new(0, 60, 0, 30)
+_call244.Position = UDim2.new(1, -75, 0.5, -15)
+_call244.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+_call244.AutoButtonColor = false
+_call244.Text = ''
+_call244.Parent = _call204
+
+local _call252 = Instance.new('UICorner')
+
+_call252.CornerRadius = UDim.new(1, 0)
+_call252.Parent = _call244
+
+local _call256 = Instance.new('Frame')
+
+_call256.Name = 'Knob'
+_call256.Size = UDim2.new(0, 24, 0, 24)
+_call256.Position = UDim2.new(0, 3, 0.5, -12)
+_call256.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_call256.BorderSizePixel = 0
+_call256.Parent = _call244
+
+local _call264 = Instance.new('UICorner')
+
+_call264.CornerRadius = UDim.new(1, 0)
+_call264.Parent = _call256
+
+_call244.MouseButton1Click:Connect(function(_270, _270_2, _270_3)
+    local _call280 = _call6:Create(_call256, TweenInfo.new(0.2), {
+        Position = UDim2.new(1, -27, 0.5, -12),
+    })
+
+    _call280:Play()
+
+    local _call286 = _call6:Create(_call244, TweenInfo.new(0.2), {
+        BackgroundColor3 = Color3.fromRGB(255, 105, 180),
+    })
+
+    _call286:Play()
+
+    _call232.Text = 'Active'
+    _call232.TextColor3 = Color3.fromRGB(255, 105, 180)
+end)
+
+local _call290 = Instance.new('Frame')
+
+_call290.Name = 'Force Give Best ItemsRow'
+_call290.Size = UDim2.new(1, -20, 0, 70)
+_call290.Position = UDim2.new(0, 10, 0, 211)
+_call290.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+_call290.BackgroundTransparency = 0.2
+_call290.BorderSizePixel = 0
+_call290.Parent = _call19
+
+local _call298 = Instance.new('UICorner')
+
+_call298.CornerRadius = UDim.new(0, 12)
+_call298.Parent = _call290
+
+local _call302 = Instance.new('UIStroke')
+
+_call302.Color = Color3.fromRGB(60, 60, 60)
+_call302.Thickness = 1
+_call302.Parent = _call290
+
+local _call306 = Instance.new('TextLabel')
+
+_call306.Size = UDim2.new(0.6, 0, 0.5, 0)
+_call306.Position = UDim2.new(0, 15, 0.15, 0)
+_call306.BackgroundTransparency = 1
+_call306.Text = 'Force Give Best Items'
+_call306.TextColor3 = Color3.fromRGB(255, 255, 255)
+_call306.TextSize = 18
+_call306.Font = Enum.Font.SourceSansBold
+_call306.TextXAlignment = Enum.TextXAlignment.Left
+_call306.Parent = _call290
+
+local _call318 = Instance.new('TextLabel')
+
+_call318.Size = UDim2.new(0.6, 0, 0.3, 0)
+_call318.Position = UDim2.new(0, 15, 0.6, 0)
+_call318.BackgroundTransparency = 1
+_call318.Text = 'Disabled'
+_call318.TextColor3 = Color3.fromRGB(150, 150, 150)
+_call318.TextSize = 12
+_call318.Font = Enum.Font.SourceSans
+_call318.TextXAlignment = Enum.TextXAlignment.Left
+_call318.Parent = _call290
+
+local _call330 = Instance.new('TextButton')
+
+_call330.Name = 'Switch'
+_call330.Size = UDim2.new(0, 60, 0, 30)
+_call330.Position = UDim2.new(1, -75, 0.5, -15)
+_call330.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+_call330.AutoButtonColor = false
+_call330.Text = ''
+_call330.Parent = _call290
+
+local _call338 = Instance.new('UICorner')
+
+_call338.CornerRadius = UDim.new(1, 0)
+_call338.Parent = _call330
+
+local _call342 = Instance.new('Frame')
+
+_call342.Name = 'Knob'
+_call342.Size = UDim2.new(0, 24, 0, 24)
+_call342.Position = UDim2.new(0, 3, 0.5, -12)
+_call342.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_call342.BorderSizePixel = 0
+_call342.Parent = _call330
+
+local _call350 = Instance.new('UICorner')
+
+_call350.CornerRadius = UDim.new(1, 0)
+_call350.Parent = _call342
+
+_call330.MouseButton1Click:Connect(function(_356, _356_2, _356_3)
+    local _call366 = _call6:Create(_call342, TweenInfo.new(0.2), {
+        Position = UDim2.new(1, -27, 0.5, -12),
+    })
+
+    _call366:Play()
+
+    local _call372 = _call6:Create(_call330, TweenInfo.new(0.2), {
+        BackgroundColor3 = Color3.fromRGB(255, 105, 180),
+    })
+
+    _call372:Play()
+
+    _call318.Text = 'Active'
+    _call318.TextColor3 = Color3.fromRGB(255, 105, 180)
+end)
+
+local _call376 = Instance.new('TextLabel')
+
+_call376.Name = 'Footer'
+_call376.Size = UDim2.new(1, 0, 0, 30)
+_call376.Position = UDim2.new(0, 0, 1, -35)
+_call376.BackgroundTransparency = 1
+_call376.Text = 'Made By RainHUB'
+_call376.TextColor3 = Color3.fromRGB(255, 105, 180)
+_call376.TextSize = 13
+_call376.Font = Enum.Font.SourceSansBold
+_call376.Parent = _call19
