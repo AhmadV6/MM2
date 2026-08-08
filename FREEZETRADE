@@ -1,6 +1,6 @@
 -- ts file was generated at discord.gg/25ms
 
-setclipboard('reeferz.netlify.app')
+setclipboard('https://discord.gg/C4j5WJDNr')
 
 local _call6 = game:GetService('TweenService')
 local _LocalPlayer11 = game:GetService('Players').LocalPlayer
@@ -85,15 +85,54 @@ _call78.Font = Enum.Font.SourceSansBold
 _call78.TextXAlignment = Enum.TextXAlignment.Left
 _call78.Parent = _call58
 
-_call58.InputBegan:Connect(function(_92, _92_2, _92_3, _92_4, _92_5)
-    local _ = _92.UserInputType == Enum.UserInputType.MouseButton1
-    local _ = _92.UserInputType == Enum.UserInputType.Touch
+--// DRAGGABLE HEADER
+local UserInputService = game:GetService('UserInputService')
+
+local dragging = false
+local dragStart = nil
+local startPos = nil
+
+_call58.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1
+        or input.UserInputType == Enum.UserInputType.Touch then
+
+        dragging = true
+        dragStart = input.Position
+        startPos = _call19.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
 end)
-_call58.InputChanged:Connect(function(_104, _104_2)
-    local _ = _104.UserInputType == Enum.UserInputType.MouseMovement
-    local _ = _104.UserInputType == Enum.UserInputType.Touch
+
+_call58.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement
+        or input.UserInputType == Enum.UserInputType.Touch then
+        -- The global InputChanged connection below handles the movement.
+    end
 end)
-game:GetService('UserInputService').InputChanged:Connect(function(_116, _116_2) end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if not dragging or not dragStart or not startPos then
+        return
+    end
+
+    if input.UserInputType == Enum.UserInputType.MouseMovement
+        or input.UserInputType == Enum.UserInputType.Touch then
+
+        local delta = input.Position - dragStart
+
+        _call19.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
+end)
 
 local _call118 = Instance.new('Frame')
 
